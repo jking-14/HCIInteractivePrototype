@@ -2,10 +2,10 @@
 'use strict';
 const app = document.getElementById('app');
 const TYPES = {
-  Walking: {icon:'♧', detail:'A stroll outside'},
-  Running: {icon:'➚', detail:'Time for a run'},
-  Hiking: {icon:'△', detail:'Head out on a trail'},
-  Commuting: {icon:'▱', detail:'On your way to work or class'}
+  Walking: {icon:'🚶‍♂️', detail:'A stroll outside'},
+  Running: {icon:'🏃‍♂️', detail:'Time for a run'},
+  Hiking: {icon:'⛰️', detail:'Head out on a trail'},
+    Commuting: {icon: '🚗', detail:'work or class'}
 };
 // Deliberately fixed sample weather. This is not a live weather service.
 const WEATHER = [
@@ -53,7 +53,7 @@ function render(){
   if(['activity','duration','location'].includes(screen)&&!draft){startPlan();return;}
   if(screen==='home'){
     const next=[...plans].sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time))[0];
-    app.innerHTML=heading('What’s on your day?','Make a plan. We’ll help you prepare for the weather.')+`<div class="grid">${weatherCard()}<section class="card home-plan"><div><p class="eyebrow">Your plans</p><h2>${next?'A little preparation goes a long way.':'Your day is a blank canvas.'}</h2><p class="muted">Add a walk, run, hike, or commute to get weather recommendations for the time you’ll be outside.</p>${next?`<div class="summary-box"><span class="tag">Next on your timeline</span><h3 style="margin-top:14px">${esc(next.type)} · ${formatTime(next.time)}</h3><p class="small muted">${formatDate(next.date)} · ${next.minutes} min · ${esc(next.location)}</p></div>`:''}</div><div class="actions"><a class="secondary" href="#timeline">View timeline</a><button class="primary" data-action="add">Add activity</button></div></section></div><h2 class="section-label">A glance at the sample day</h2><div class="day-strip">${WEATHER.slice(1,5).map(w=>`<div class="day-chip"><strong>${formatTime(`${w.hour}:00`)}</strong><span aria-hidden="true">${w.icon}</span> ${w.temp}°F <span class="muted small">· ${w.rain}% rain</span></div>`).join('')}</div>`;
+    app.innerHTML=heading('What’s your plan for the day?','Make a plan. We’ll help you prepare for the weather.')+`<div class="grid">${weatherCard()}<section class="card home-plan"><div><p class="eyebrow">Your plans</p><h2>${next?'A little preparation goes a long way.':'Your day is a blank canvas.'}</h2><p class="muted">Add a walk, run, hike, or commute to get weather recommendations for the time you’ll be outside.</p>${next?`<div class="summary-box"><span class="tag">Next on your timeline</span><h3 style="margin-top:14px">${esc(next.type)} · ${formatTime(next.time)}</h3><p class="small muted">${formatDate(next.date)} · ${next.minutes} min · ${esc(next.location)}</p></div>`:''}</div><div class="actions"><a class="secondary" href="#timeline">View timeline</a><button class="primary" data-action="add">Add activity</button></div></section></div><h2 class="section-label">A glance at the sample day</h2><div class="day-strip">${WEATHER.slice(1,5).map(w=>`<div class="day-chip"><strong>${formatTime(`${w.hour}:00`)}</strong><span aria-hidden="true">${w.icon}</span> ${w.temp}°F <span class="muted small">· ${w.rain}% rain</span></div>`).join('')}</div>`;
   }else if(screen==='timeline'){
     app.innerHTML=heading('Your timeline','A forecast that fits around your plans.',`<button class="primary" data-action="add">+ Add activity</button>`)+(plans.length?`<ul class="activity-list">${[...plans].sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time)).map(p=>`<li class="activity-row"><div class="time-label">${formatTime(p.time)}<p class="small muted">${formatDate(p.date)}</p></div><span class="activity-icon" aria-hidden="true">${TYPES[p.type].icon}</span><div><h2>${esc(p.type)}</h2><p class="muted small">${p.minutes} min · ${esc(p.location)}</p><p class="small" style="margin-top:7px">${esc(tipsFor(p)[0].title)}</p></div><div class="row-actions"><button class="secondary" data-action="recommend" data-id="${esc(p.id)}">Recommendations</button><details><summary aria-label="Options for ${esc(p.type)}">⋯</summary><div class="menu"><button data-action="edit" data-id="${esc(p.id)}">Edit activity</button><button class="danger" data-action="delete" data-id="${esc(p.id)}">Delete activity</button></div></details></div></li>`).join('')}</ul>`:`<div class="empty"><h2>No activities yet</h2><p class="muted">Add your first activity to start planning your day.</p><button class="primary" data-action="add">Add activity</button></div>`)+`<div class="actions"><a class="secondary" href="#forecast">Detailed forecast</a></div><p class="notice">${storageNote}</p>`;
   }else if(screen==='activity'){
