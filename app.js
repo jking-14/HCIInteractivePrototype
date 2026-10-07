@@ -5,7 +5,7 @@ const TYPES = {
   Walking: {icon:'🚶‍♂️', detail:'A stroll outside'},
   Running: {icon:'🏃‍♂️', detail:'Time for a run'},
   Hiking: {icon:'⛰️', detail:'Head out on a trail'},
-    Commuting: {icon: '🚗', detail:'work or class'}
+    Commuting: {icon: '🚗', detail:'Going to Work or Class'}
 };
 // Deliberately fixed sample weather. This is not a live weather service.
 const WEATHER = [
