@@ -52,3 +52,6 @@ The HTML file loads JavaScript with `defer`, so the page structure exists before
 
 ## Submission
 Submit this folder's HTML, CSS, and JavaScript source files, or the ZIP if your instructor accepts ZIP submissions. A live website is optional; none is needed to run this prototype. These static files can also be hosted on GitHub Pages without modification.
+
+## Updated Design
+10/28/26 Jason: Added a "+ Add another activity" button once users have completed the submission of an activity to make planning a full day simpler. Changed the appearance of the "Home" button to stand out more against other options to indicate significance.
