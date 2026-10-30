@@ -5,6 +5,9 @@
 @media(max-width:520px){main{padding:0 18px;margin-top:12px}.site-header{padding:20px 18px}.site-header nav{gap:16px}.brand-small{display:none}.brand{font-size:1.5rem}.card,.flow-card{padding:22px}.page-title{align-items:flex-start;flex-direction:column;gap:16px}.page-title h1{font-size:2rem}.activity-row{padding:18px;grid-template-columns:62px 1fr}.activity-row .activity-icon{display:none}.row-actions{grid-column:2}.two-fields{grid-template-columns:1fr;gap:0}.step-list{gap:10px;font-size:.85rem}.step-list li{gap:6px}.step-number{width:25px;height:25px}.weather-bottom{gap:18px}.temperature{font-size:4.3rem}footer{padding:22px 18px;flex-direction:column;gap:8px}.metrics{gap:10px}.metric{padding:16px}.metric strong{font-size:1.6rem}.actions>*{flex:1}.day-chip{min-width:100px}}
 
 /* Keep Home recognizable throughout the activity flow. */
+.row-actions .secondary,.row-actions .delete-button{min-height:40px;padding:9px 13px;font-size:.85rem}
+.delete-button{background:#fff5f3;border:1px solid #e7bcb7;border-radius:10px;color:#96372f;font-weight:650}
+.delete-button:hover{background:#ffe9e5}
 .site-header nav{align-items:center;flex-wrap:wrap}
 .site-header nav .nav-home{background:var(--accent);color:var(--ink);padding:12px 18px;min-height:48px;border:2px solid transparent;border-radius:10px;font-weight:700}
 .site-header nav .nav-home:hover{background:#efc65d}

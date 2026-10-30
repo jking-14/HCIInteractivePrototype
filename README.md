@@ -55,3 +55,5 @@ Submit this folder's HTML, CSS, and JavaScript source files, or the ZIP if your 
 
 ## Updated Design
 10/28/26 Jason: Added a "+ Add another activity" button once users have completed the submission of an activity to make planning a full day simpler. Changed the appearance of the "Home" button to stand out more against other options to indicate significance.
+
+10/30/26 Finn: Made the "Edit" and "Delete" buttons more visible by removing them from the three-dot menu, making it easier for users to manage their activities. Added more activity options, including cycling, outdoor dining, picnicking, gardening, swimming, and sports, to give users more flexibility when planning their day.
